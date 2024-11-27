@@ -1,5 +1,4 @@
 // Home.js
-import React from "react";
 import Header from "../components/Header"; // Correct path for Header component
 import Nav from "../components/Nav"; // Correct path for Nav component
 import StatCards from "../components/StatCards"; // Correct path for StatCards component
