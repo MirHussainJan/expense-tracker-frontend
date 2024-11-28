@@ -15,10 +15,10 @@ const ImageSelector = () => {
       };
     
   return (
-    <div className="mb-4 ">
+    <div className="mb-2 ">
     <div
       id="groupImage"
-      className="relative block w-full px-4 py-10 border rounded-tl-lg rounded-tr-lg shadow-sm bg-zinc-500"
+      className="relative block w-full px-4 py-10 border rounded-tl-lg rounded-tr-lg shadow-sm bg-black"
     >
       {/* Display selected image or icon */}
       {image ? (

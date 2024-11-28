@@ -1,9 +1,8 @@
-import React from "react";
 import { AiFillBell } from "react-icons/ai";
 
 const Header = () => {
   return (
-    <div className="flex items-center justify-between p-4">
+    <div className="flex fixed w-full items-center justify-between py-2 px-4">
       {/* Left Section */}
       <div className="left">
         <h1 className="m-0 fs-3 font-semibold">Welcome, User</h1>

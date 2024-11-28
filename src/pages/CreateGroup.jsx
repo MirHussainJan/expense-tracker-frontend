@@ -1,7 +1,5 @@
 import { useState } from "react";
 
-import SidebarImage from "../components/CreateGroupPage/SidebarImage";
-
 import ImageSelector from "../components/CreateGroupPage/ImageSelector";
 import Form from "../components/CreateGroupPage/Form";
 export default function CreateGroup() {
@@ -31,20 +29,17 @@ export default function CreateGroup() {
 
   
   return (
-    <div className="h-screen flex font-poppins">
-      {/* Left Side (Image) */}
-      <SidebarImage />
-      {/* Right Side (Form) */}
-      <div className="w-full md:w-1/2 bg-white p-8 flex justify-center items-center">
+    <div className="h-screen flex font-poppins items-center justify-center">
+      <div className="w-full md:w-1/2 flex justify-center items-center">
         <div className="w-full max-w-md">
-          <h2 className="text-2xl font-bold mb-4 text-center text-gray-800">
+          {/* <h2 className="text-2xl font-bold mb-4 text-center text-gray-800">
             Create a Group
-          </h2>
+          </h2> */}
 
           {/* Added Members */}
           {members.length > 0 && (
-            <div className="mb-4">
-              <h3 className="text-gray-600 font-medium mb-2">Added Members</h3>
+            <div className="">
+              <h3 className="text-gray-600 font-medium">Added Members</h3>
               <div className="flex flex-wrap gap-2">
                 {members.map((member) => (
                   <div
