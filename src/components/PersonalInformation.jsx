@@ -15,7 +15,7 @@ const PersonalInformation = () => {
   ];
 
   return (
-    <div className="border-3 col-lg-6 col-md-6 border-white p-6 rounded-lg">
+    <div className="border-2 col-lg-6 col-md-6 border-black p-6 rounded-lg">
       <div className="flex items-center justify-between mb-3">
         <h2 className="text-lg font-semibold text-gray-800">
           Personal Information

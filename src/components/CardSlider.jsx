@@ -65,16 +65,16 @@ const CardSlider = () => {
           </div>
         ))}
       </div>
-      <div className="flex justify-start gap-3 w-full mt-2">
+      <div className="flex justify-between w-full mt-2">
         <button
           onClick={handlePrev}
-          className="px-4 cursor-pointer py-2 border-2 border-black text-xs bg-white rounded-full"
+          className="px-4 font-semibold cursor-pointer py-2 border-2 border-black text-sm bg-white rounded-full"
         >
           Prev
         </button>
         <button
           onClick={handleNext}
-          className="px-4 cursor-pointer py-2 border-2 border-black text-xs bg-white rounded-full"
+          className="px-4 font-semibold cursor-pointer py-2 border-2 border-black text-sm bg-white rounded-full"
         >
           Next
         </button>

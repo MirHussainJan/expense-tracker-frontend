@@ -2,7 +2,7 @@ import { AiFillBell } from "react-icons/ai";
 
 const Header = () => {
   return (
-    <div className="flex fixed w-full items-center justify-between py-2 px-4">
+    <div className="flex border-2 border-white w-full fixed items-center justify-between py-2 px-4 bg-glass rounded-full z-50">
       {/* Left Section */}
       <div className="left flex items-center rounded-full">
         <img
@@ -10,7 +10,7 @@ const Header = () => {
           src="https://www.zarla.com/images/zarla-e-1x1-2400x2400-20211115-3wgb9mwmcqvxyfth6mgh.png?crop=1:1,smart&width=250&dpr=2"
           alt=""
         />
-        <h1 className="m-0 fw-bold">XPENSE</h1>
+        <h1 className="m-0 fw-bold text-lg font-semibold ml-2">XPENSE</h1>
       </div>
 
       {/* Right Section */}

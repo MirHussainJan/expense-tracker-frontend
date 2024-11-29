@@ -60,10 +60,10 @@ export default function Form({
       <div className="flex flex-col gap-2 my-3">
         {/* Form Buttons */}
         <div className="flex justify-between gap-3">
-          <button className="px-4 py-2 w-1/4 border-2 border-black rounded-full hover:bg-red-300 focus:outline-none focus:ring-2 focus:ring-opacity-50 text-sm">
+          <button className="px-4 font-medium py-2 w-1/4 border-2 border-black rounded-full hover:underline focus:outline-none focus:ring-2 focus:ring-opacity-50 text-sm">
             Cancel
           </button>
-          <button className="px-4 py-2 w-3/4 bg-black text-white rounded-full font-medium hover:bg-purple-700 focus:outline-none focus:ring-2 focus:ring-opacity-50 text-sm">
+          <button className="px-4 py-2 w-3/4 bg-black text-white rounded-full font-medium focus:outline-none focus:ring-2 focus:ring-opacity-50 hover:underline text-sm">
             Create
           </button>
         </div>
