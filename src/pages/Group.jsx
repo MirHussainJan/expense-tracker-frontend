@@ -1,35 +1,34 @@
-import { useState } from "react";
+import { Link } from "react-router-dom";
+import GroupCard from "../components/GroupPage/GroupCard";
 
-import SidebarImage from "../components/GroupPage/SidebarImage";
+const groups = [
+  {
+    id: 1,
+    name: "Weekend Trip",
+    type: "Travel",
+    image: "https://via.placeholder.com/50", // Placeholder image for group icon
+    members: ["Alice", "Bob", "Charlie"],
+    totalAmount: "€450.00",
+  },
+  {
+    id: 2,
+    name: "Office Lunches",
+    type: "Food",
+    image: "https://via.placeholder.com/50",
+    members: ["John", "Doe", "Smith"],
+    totalAmount: "€180.00",
+  },
+  {
+    id: 3,
+    name: "Roommates",
+    type: "Bills",
+    image: "https://via.placeholder.com/50",
+    members: ["Jake", "Amy", "Terry"],
+    totalAmount: "€300.00",
+  },
+];
 
-import ImageSelector from "../components/GroupPage/ImageSelector";
-import Form from "../components/GroupPage/Form";
-export default function Group() {
-  const [selectedGroupType, setSelectedGroupType] = useState(null);
-  const [isPopupVisible, setIsPopupVisible] = useState(false);
-  const [members, setMembers] = useState([]);
-  const [searchText, setSearchText] = useState("");
-
-  const handleGroupTypeClick = (type) => {
-    setSelectedGroupType(type);
-  };
-
-  const togglePopup = () => {
-    setIsPopupVisible(!isPopupVisible);
-    setSearchText("");
-  };
-
-  const handleAddMember = (member) => {
-    if (!members.includes(member)) {
-      setMembers([...members, member]);
-    }
-  };
-
-  const handleRemoveMember = (member) => {
-    setMembers(members.filter((m) => m !== member));
-  };
-
-  
+const Group = () => {
   return (
     <div className="p-6 bg-gray-100 text-gray-900 min-h-screen">
       <div className="flex justify-between items-center mb-6">
