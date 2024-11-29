@@ -1,15 +1,15 @@
 import { createBrowserRouter } from "react-router-dom";
-import Home from './pages/Home'
-import Group from './pages/Group'
+import CreateGroup from './pages/CreateGroup'
+import Group from "./pages/Group";
 
 export const router = createBrowserRouter([
     {
       path: "/",
-      element: <Home />,
+      element: <Group />,
     },
     {
       path: "/create-group",
-      element: <Group/>,
+      element: <CreateGroup/>,
     }
 
   ]);
