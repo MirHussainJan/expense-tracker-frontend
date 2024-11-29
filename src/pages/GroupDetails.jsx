@@ -1,20 +1,36 @@
+import StatCard from "../components/StatCard";
+
 export default function GroupDetails() {
   return (
-    <div className="pt-16 h-screen bg-gray-100">
+    <div className="pt-16 h-screen">
       {/* Top Section with Group Info */}
-      <div className="w-full bg-gradient-to-r from-pink-500 to-orange-400 h-1/3  rounded-full relative flex items-center px-6">
-        {/* Group Name */}
-        <div className="text-white text-3xl font-bold">
-          Group Name {/* Replace with the actual group name */}
+      <div className="w-full bg-gradient-to-r h-1/3 rounded-full relative flex items-center px-6">
+        {/* Left Section: Group Image and Name */}
+        <div className="flex items-center space-x-4">
+          <div>
+            <img
+              src="/right.jfif"
+              alt="Group"
+              className="w-36 h-36 rounded-full shadow-lg"
+            />
+          </div>
+          {/* Group Name */}
+          <div className="text-black text-3xl font-bold">
+            Group Name
+          </div>
         </div>
 
-        {/* Group Image */}
-        <div className="absolute left-1/2 bottom-[-48px] transform -translate-x-1/2">
-          <img
-            src="/right.jfif" // Replace with actual group image URL
-            alt="Group"
-            className="w-36 h-36 rounded-full border-4 border-white shadow-lg"
-          />
+        {/* Right Section: StatCards */}
+        <div className="ml-auto flex space-x-4">
+          <div className="w-48">
+            <StatCard color={"white"} amount={23} label={"Head"} />
+          </div>
+          <div className="w-48">
+            <StatCard color={"white"} amount={23} label={"Members"} />
+          </div>
+          <div className="w-48">
+            <StatCard color={"white"} amount={23} label={"Projects"} />
+          </div>
         </div>
       </div>
     </div>

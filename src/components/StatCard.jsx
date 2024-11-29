@@ -1,5 +1,5 @@
+/* eslint-disable react/prop-types */
 // StatCard.js
-import React from "react";
 
 const StatCard = ({ color, amount, label }) => {
   return (
