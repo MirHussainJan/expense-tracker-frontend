@@ -8,10 +8,10 @@ import Nav from "../components/Nav";
 
 const Home = () => {
   return (
-    <div className="p-4 min-h-screen m-0">
-      <div className="row my-4 mx-0 gap-4 justify-between">
-      <StatCards />
+    <div className="p-4 min-h-screen">
+      <div className="row my-5 mx-0 gap-4 justify-between">
       <CardSlider />
+      <StatCards />
       </div>
       <div className="row mx-0 my-4 justify-between">
       <PersonalInformation/>
