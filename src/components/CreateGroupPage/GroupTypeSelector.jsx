@@ -3,16 +3,16 @@ import { MdGroup, MdFamilyRestroom, MdPerson, MdHome } from "react-icons/md"; //
 
 export default function GroupTypeSelector({ selectedGroupType, handleGroupTypeClick }) {
   return (
-    <div className="mb-4">
+    <div className="">
       <label className="block text-gray-600 font-medium mb-2">
         Group Type
       </label>
-      <div className="flex gap-4">
-        {["Trip", "Couple", "Others", "Home"].map((type) => (
+      <div className="flex justify-between">
+        {["Home", "Trip", "Others"].map((type) => (
           <div
             key={type}
-            className={`flex items-center gap-[2px] px-4 py-2 border rounded-lg cursor-pointer ${
-              selectedGroupType === type ? "bg-purple-600 text-white" : "text-gray-600"
+            className={`flex items-center gap-[2px] px-10 py-2 rounded-full border-2 border-black cursor-pointer ${
+              selectedGroupType === type ? "bg-black text-white" : "text-gray-600"
             }`}
             onClick={() => handleGroupTypeClick(type)}
           >

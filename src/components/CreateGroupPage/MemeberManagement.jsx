@@ -3,10 +3,10 @@
 export default function MemberManagement({isPopupVisible, togglePopup, searchText,setSearchText,handleAddMember}) {
     return (
    
-    <div className="mb-4">
+    <div className="mb-2">
       <button
         onClick={togglePopup}
-        className="w-full px-4 py-2 bg-purple-600 text-white rounded-lg font-medium hover:bg-purple-700"
+        className="w-full transition duration-300 px-4 py-2 border-2 border-black rounded-full font-medium hover:bg-black hover:text-white"
       >
         Add Members
       </button>
@@ -21,7 +21,7 @@ export default function MemberManagement({isPopupVisible, togglePopup, searchTex
               placeholder="Search members..."
               value={searchText}
               onChange={(e) => setSearchText(e.target.value)}
-              className="block w-full px-4 py-2 mb-4 border rounded-lg focus:ring-purple-500 focus:border-purple-500 text-sm"
+              className="block w-full px-4 py-2 mb-4 border rounded-full text-sm"
             />
             <ul className="mb-4">
               {["Alice", "Bob", "Charlie", "David"] // Replace with actual member data
@@ -32,7 +32,7 @@ export default function MemberManagement({isPopupVisible, togglePopup, searchTex
                   <li
                     key={name}
                     onClick={() => handleAddMember(name)}
-                    className="py-2 px-4 cursor-pointer hover:bg-purple-100"
+                    className="py-2 px-4 cursor-pointer "
                   >
                     {name}
                   </li>
@@ -40,7 +40,7 @@ export default function MemberManagement({isPopupVisible, togglePopup, searchTex
             </ul>
             <button
               onClick={togglePopup}
-              className="w-full px-4 py-2 bg-gray-600 text-white rounded-lg font-medium hover:bg-gray-700"
+              className="w-full px-4 py-2 bg-black text-white rounded-full font-medium hover:bg-gray-700"
             >
               Close
             </button>

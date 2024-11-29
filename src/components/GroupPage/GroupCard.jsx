@@ -2,18 +2,18 @@
 import { Link } from 'react-router-dom'
 export default function GroupCard({groups}) {
   return (
-    <div className="grid gap-6 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
+    <div className="grid gap-6 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 font-poppins">
     {groups.map((group) => (
       <div
         key={group.id}
-        className="bg-white p-4 rounded-lg shadow-md hover:shadow-lg transition duration-300"
+        className="bg-white p-4 rounded-xl shadow-md hover:shadow-lg transition duration-300"
       >
         <div className="flex items-center mb-4">
-          <img
-            src={group.image}
-            alt={group.name}
-            className="w-12 h-12 rounded-full mr-4"
-          />
+          <div
+            className="w-12 h-12 rounded-full mr-4 border-2 border-black flex items-center justify-center"
+          >
+            {group.icon}
+        </div>
           <div>
             <h2 className="text-xl font-semibold">{group.name}</h2>
             <p className="text-sm text-gray-500">{group.type}</p>
@@ -25,7 +25,7 @@ export default function GroupCard({groups}) {
             {group.members.map((member, index) => (
               <span
                 key={index}
-                className="bg-blue-100 text-blue-600 px-3 py-1 rounded-full text-sm font-medium"
+                className="bg-black text-white px-3 py-1 rounded-full text-sm font-medium"
               >
                 {member}
               </span>
@@ -41,8 +41,8 @@ export default function GroupCard({groups}) {
           </p>
         </div>
         <Link
-          to={`/group/${group.id}`}
-          className="block text-center bg-blue-500 hover:bg-blue-600 text-white py-2 px-4 rounded-full"
+          to={`/group-details`}
+          className="block text-center  hover:bg-black hover:text-white border-2 border-black py-2 px-4 rounded-full"
         >
           View Details
         </Link>
