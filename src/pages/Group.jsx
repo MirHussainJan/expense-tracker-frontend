@@ -1,7 +1,5 @@
 import { useState } from "react";
-
 import SidebarImage from "../components/GroupPage/SidebarImage";
-
 import ImageSelector from "../components/GroupPage/ImageSelector";
 import Form from "../components/GroupPage/Form";
 export default function Group() {
