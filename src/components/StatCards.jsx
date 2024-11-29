@@ -3,19 +3,16 @@ import StatCard from "./StatCard";
 
 const StatCards = () => {
   return (
-    <div className="grid grid-cols-1 md:grid-cols-3 gap-4 my-4">
+    <div className="flex flex-col gap-3 justify-between col-lg-4 col-md-4 p-0">
       <StatCard
-        color="bg-green-100"
         amount="₹20,500"
         label="Total Income"
       />
       <StatCard
-        color="bg-red-100"
         amount="₹3,500"
         label="Total Expenses"
       />
       <StatCard
-        color="bg-purple-100"
         amount="₹17,000"
         label="Total Balance"
       />
