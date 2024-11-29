@@ -42,7 +42,7 @@ export default function GroupCard({groups}) {
         </div>
         <Link
           to={`/group-details`}
-          className="block text-center  hover:bg-black hover:text-white border-2 border-black py-2 px-4 rounded-full"
+          className="block text-center  hover:bg-black hover:text-white border-2 border-black py-2 px-4 rounded-full transition transform duration-300"
         >
           View Details
         </Link>

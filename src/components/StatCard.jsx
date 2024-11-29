@@ -1,6 +1,6 @@
 /* eslint-disable react/prop-types */
 // StatCard.js
-import React from "react";
+
 import { BsGraphUp } from "react-icons/bs";
 
 const StatCard = ({amount, label }) => {
