@@ -6,7 +6,7 @@ import { BsGraphUp } from "react-icons/bs";
 const StatCard = ({amount, label }) => {
   return (
     <div
-      className={`p-4 rounded-lg border-2 border-black flex justify-between items-center`}
+      className={`p-4 bg-white rounded-lg border-2 border-black flex justify-between items-center`}
     >
       <div>
         <h2 className="text-xl font-semibold">{amount}</h2>

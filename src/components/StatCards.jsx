@@ -3,7 +3,7 @@ import StatCard from "./StatCard";
 
 const StatCards = () => {
   return (
-    <div className="flex flex-col gap-3 justify-between col-lg-4 col-md-4 p-0">
+    <div className="flex flex-col gap-5 justify-center col-lg-3 p-0">
       <StatCard
         amount="₹20,500"
         label="Total Income"

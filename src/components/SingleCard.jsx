@@ -10,7 +10,7 @@ const SingleCard = ({ title, subtitle, number }) => {
           {number}
         </span>
       </div>
-      <div className={`w-72 h-96 p-6 border-2 border-black bg-white rounded-lg shadow-lg flex flex-col justify-between`}>
+      <div className={`w-72 h-96 p-6 border-2 border-black bg-white rounded-lg flex flex-col justify-between`}>
         <h3 className="text-2xl font-bold text-black">{title}</h3>
         <p className="text-lg text-gray-500">{subtitle}</p>
       </div>

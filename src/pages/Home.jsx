@@ -4,20 +4,21 @@ import RecentExpenses from "../components/RecentExpenses"; // Correct path for G
 import PersonalInformation from "../components/PersonalInformation";
 import CardSlider from "../components/CardSlider";
 import Nav from "../components/Nav";
+import CardSwiper from "../components/CardSwiper";
 
 
 const Home = () => {
   return (
     <div className="p-4 min-h-screen">
-      <div className="row my-5 mx-0 gap-4 justify-between">
-      <CardSlider />
+      <div className="row my-4 mt-5 mx-0 gap-4 justify-between">
       <StatCards />
+      <CardSwiper/>
       </div>
-      <div className="row mx-0 my-4 justify-between">
+      <div className="row mx-0 my-4 gap-4 justify-between">
       <PersonalInformation/>
       <RecentExpenses />
       </div>
-      <Nav /> {/* Nav component */}
+      <Nav />
     </div>
   );
 };
