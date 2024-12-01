@@ -1,0 +1,49 @@
+.container {
+    width: 100%;
+    max-width: 900px;
+    margin: auto;
+    text-align: center;
+    padding: 20px;
+  }
+  
+  .heading {
+    font-size: 2rem;
+    margin-bottom: 20px;
+  }
+  
+  .swiper_container {
+    padding: 20px 0;
+  }
+  
+  .slider-controler {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+  }
+  
+  .slider-arrow {
+    font-size: 24px;
+    color: #333;
+    cursor: pointer;
+    margin: 0 10px;
+    background: none;
+    border: none;
+    user-select: none;
+  }
+  
+  .slider-arrow:hover {
+    color: #000;
+  }
+  
+  .swiper-slide {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transform: scale(0.9);
+    transition: transform 0.3s;
+  }
+  
+  .swiper-slide-active {
+    transform: scale(1);
+  }  
