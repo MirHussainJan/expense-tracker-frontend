@@ -48,7 +48,7 @@ export default function GroupDetails() {
   const visibleMembers = showAllMembers ? groupMembers : groupMembers.slice(0, 3);
 
   return (
-    <div className="pt-16 min-h-screen text-black">
+    <div className="pt-24 min-h-screen text-black">
       {/* Header Section */}
       <div className="border-2 rounded-xl border-black text-center relative bg-white p-6 mx-6">
         <div className="absolute top-[-30px] left-1/2 transform -translate-x-1/2">
@@ -103,7 +103,7 @@ export default function GroupDetails() {
             className="bg-black text-white py-2 px-6 rounded-full"
             onClick={() => setShowAddExpenseModal(true)}
           >
-            Add Expense
+            + Add Expense
           </button>
         </div>
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-4">

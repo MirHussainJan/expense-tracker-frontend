@@ -35,16 +35,30 @@ const CardSwiper = () => {
   };
 
   return (
-    <div className="col-lg-8 col-md-8 text-center p-0">
+    <div className="col-lg-8 col-md-12 text-center p-0">
       <h1 className="text-3xl font-bold mb-6">Groups</h1>
       
       {/* Swiper Component */}
       <Swiper
         onSwiper={setSwiperInstance}
-        slidesPerView={2}
         centeredSlides={true}
         onSlideChange={onSlideChange}
         className="swiper_container"
+        breakpoints={{
+          // Responsive breakpoints
+          320: {
+            slidesPerView: 1,
+            spaceBetween: 10,
+          },
+          768: {
+            slidesPerView: 2,
+            spaceBetween: 30,
+          },
+          1024: {
+            slidesPerView: 2,
+            spaceBetween: 30,
+          },
+        }}
       >
         {cards.map((card, index) => (
           <SwiperSlide key={index}>
