@@ -8,7 +8,7 @@ const RecentExpenses = () => {
   ];
 
   return (
-    <div className="col-lg-5 col-md-5 border-3 border-white p-4 rounded-lg">
+    <div className="col-lg-5 col-md-5 border-2 border-black bg-white p-4 rounded-lg">
       <h2 className="text-lg font-semibold mb-3">Recent Expenses</h2>
       <hr/>
       <div className="flex flex-col space-y-4">

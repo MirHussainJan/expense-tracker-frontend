@@ -6,7 +6,7 @@ export default function GroupCard({groups}) {
     {groups.map((group) => (
       <div
         key={group.id}
-        className="bg-white p-4 rounded-xl shadow-md hover:shadow-lg transition duration-300"
+        className="bg-white border-2 border-black p-4 rounded-lg shadow-md hover:shadow-lg transition duration-300"
       >
         <div className="flex items-center mb-4">
           <div
@@ -42,7 +42,7 @@ export default function GroupCard({groups}) {
         </div>
         <Link
           to={`/group-details`}
-          className="block text-center  hover:bg-black hover:text-white border-2 border-black py-2 px-4 rounded-full transition transform duration-300"
+          className="block text-center hover:bg-black hover:text-white border-2 border-black py-2 px-4 rounded-full"
         >
           View Details
         </Link>
