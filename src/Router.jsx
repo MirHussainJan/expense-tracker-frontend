@@ -6,6 +6,7 @@ import GroupDetails from './pages/GroupDetails';
 import App from './App';  // Ensure this imports App component to wrap the routes
 import ApprovalPage from './pages/ApprovalPage';
 import Login from './components/Login';
+import Profile from './pages/Profile';
 
 export const router = createBrowserRouter([
   {
@@ -35,6 +36,10 @@ export const router = createBrowserRouter([
       {
         path: "/approvals",
         element: <ApprovalPage/>, 
+      },
+      {
+        path: "/profile",
+        element: <Profile/>, 
       }
     ]
   }
