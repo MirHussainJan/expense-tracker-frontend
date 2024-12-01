@@ -44,7 +44,7 @@ export default function CreateGroup() {
                 {members.map((member) => (
                   <div
                     key={member}
-                    className="flex items-center gap-2 px-3 py-1 bg-purple-100 text-purple-600 rounded-full text-sm"
+                    className="flex items-center gap-2 px-3 py-1 bg-glass border-2 border-white my-2 text-black rounded-full text-sm"
                   >
                     {member}
                     <button
