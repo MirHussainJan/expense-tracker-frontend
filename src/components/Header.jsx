@@ -6,8 +6,8 @@ const Header = () => {
       {/* Left Section */}
       <div className="left flex items-center rounded-full">
         <img
-          className="w-8 h-8"
-          src="https://www.zarla.com/images/zarla-e-1x1-2400x2400-20211115-3wgb9mwmcqvxyfth6mgh.png?crop=1:1,smart&width=250&dpr=2"
+          className="w-10 h-10"
+          src="https://pngimg.com/uploads/letter_e/letter_e_PNG50.png"
           alt=""
         />
         <h1 className="m-0 fw-bold text-lg font-semibold ml-2">XPENSE</h1>
