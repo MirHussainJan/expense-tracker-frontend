@@ -11,16 +11,16 @@ export default function GroupTypeSelector({ selectedGroupType, handleGroupTypeCl
         {["Home", "Trip", "Others"].map((type) => (
           <div
             key={type}
-            className={`flex items-center gap-[2px] px-10 py-2 rounded-full border-2 border-black cursor-pointer ${
+            className={`flex gap-[2px] px-10 py-2 rounded-full border-2 border-black cursor-pointer ${
               selectedGroupType === type ? "bg-black text-white" : "text-gray-600"
             }`}
             onClick={() => handleGroupTypeClick(type)}
           >
             {/* Add respective icons */}
-            {type === "Trip" && <MdGroup className="text-xl" />}
-            {type === "Couple" && <MdFamilyRestroom className="text-xl" />}
-            {type === "Others" && <MdPerson className="text-xl" />}
-            {type === "Home" && <MdHome className="text-xl" />}
+            {type === "Trip" && <MdGroup className="text-lg" />}
+            {type === "Couple" && <MdFamilyRestroom className="text-lg" />}
+            {type === "Others" && <MdPerson className="text-lg" />}
+            {type === "Home" && <MdHome className="text-lg" />}
             {type}
           </div>
         ))}
