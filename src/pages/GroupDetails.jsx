@@ -1,7 +1,9 @@
 import { useState } from "react";
-import AddExpense from "../components/GroupDetailsPage/AddExpense";
+import AddExpense from "../components/GroupDetailsPage/AddExpense"; // Import your modal
 
 export default function GroupDetails() {
+
+  
   const [groupMembers, setGroupMembers] = useState([
     { name: "Ali R.", owes: "€4,143.01" },
     { name: "Abdul M.", owes: "€3,160.77" },
@@ -9,37 +11,51 @@ export default function GroupDetails() {
     { name: "John D.", owes: "€450.00" },
   ]);
   const [showAllMembers, setShowAllMembers] = useState(false);
-  const [showAddExpenseModal, setShowAddExpenseModal] = useState(false);
+  const [showAddExpenseModal, setShowAddExpenseModal] = useState(false); // Modal visibility state
   const [balances, setBalances] = useState(groupMembers);
-  const [showBalancesModal, setShowBalancesModal] = useState(false); // To control modal visibility
-  const [showSettleUpModal, setShowSettleUpModal] = useState(false); // To control settle-up modal visibility
+  const [showBalancesModal, setShowBalancesModal] = useState(false); 
+  const [showSettleUpModal, setShowSettleUpModal] = useState(false); 
   const [expenseToSettle, setExpenseToSettle] = useState(null);
 
-  const handleSettleUp = () => {
-    setShowSettleUpModal(true); // Show the settle-up modal
+  // Toggle function to show modal
+  const handleAddExpense = () => {
+    setShowAddExpenseModal(true); // Show modal when Add Expense is clicked
   };
 
-  const handleBalances = () => {
-    // Open the balances modal
-    setShowBalancesModal(true);
+  // Close modal
+  const handleCloseAddExpenseModal = () => {
+    setShowAddExpenseModal(false); // Close modal when clicking "Close"
   };
 
-  const handleAddExpense = (expenseDetails) => {
+  // Handle submission of expense data
+  const handleSubmitExpense = (expenseDetails) => {
     console.log("Expense added:", expenseDetails);
-    setShowAddExpenseModal(false);
-    // Update balances logic here
+    setShowAddExpenseModal(false); // Close the modal after submitting the expense
+    // Update balances logic here if needed
   };
 
+  // Handle set-up modal visibility
+  const handleSettleUp = () => {
+    setShowSettleUpModal(true); // Show settle-up modal
+  };
+
+  // Handle balances modal visibility
+  const handleBalances = () => {
+    setShowBalancesModal(true); // Show balances modal
+  };
+
+  // Close balances modal
   const handleCloseBalancesModal = () => {
     setShowBalancesModal(false);
   };
 
+  // Handle close settle-up modal
   const handleCloseSettleUpModal = () => {
     setShowSettleUpModal(false); // Close settle-up modal
   };
 
+  // Settle selected expense
   const handleSettleSelectedExpense = (expense) => {
-    // Handle the logic to settle the selected expense
     console.log("Settling expense:", expense);
     setExpenseToSettle(expense);
     setShowSettleUpModal(false); // Close the modal after settling
@@ -87,7 +103,7 @@ export default function GroupDetails() {
             Settle up
           </button>
           <button
-            className="bg-black  text-white text-sm font-semibold py-2 px-6 rounded-full"
+            className="bg-black text-white text-sm font-semibold py-2 px-6 rounded-full"
             onClick={handleBalances}
           >
             Balances
@@ -101,7 +117,7 @@ export default function GroupDetails() {
           <h2 className="text-lg font-semibold">Transactions (November 2024)</h2>
           <button
             className="bg-black text-white py-2 px-6 rounded-full"
-            onClick={() => setShowAddExpenseModal(true)}
+            onClick={handleAddExpense} // Click to show the modal
           >
             + Add Expense
           </button>
@@ -131,9 +147,9 @@ export default function GroupDetails() {
       {showAddExpenseModal && (
         <AddExpense
           members={groupMembers}
-          showModal={showAddExpenseModal}
-          onClose={() => setShowAddExpenseModal(false)}
-          onSubmit={handleAddExpense}
+          showModal={showAddExpenseModal} // Passing showModal prop
+          onClose={handleCloseAddExpenseModal} // Close modal when requested
+          onSubmit={handleSubmitExpense} // Submit expense details
         />
       )}
 
