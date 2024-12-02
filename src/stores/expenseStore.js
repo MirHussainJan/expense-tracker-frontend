@@ -1,4 +1,4 @@
-import {create} from 'zustand';
+import { create } from 'zustand';
 import axios from 'axios';
 
 const useExpenseStore = create((set) => ({
@@ -24,7 +24,20 @@ const useExpenseStore = create((set) => ({
   // Method to add expense via API call
   addExpense: async (expenseData) => {
     try {
-      const response = await axios.post('http://localhost:3000/api/expenses/add', expenseData);
+      // Retrieve token from sessionStorage
+      const token = sessionStorage.getItem('token');
+      
+      // Check if token exists and attach it to the request header
+      const response = await axios.post(
+        'http://localhost:3000/api/expenses/add',
+        expenseData,
+        {
+          headers: {
+            authorization: token ? `${token}` : ''
+          }
+        }
+      );
+      
       set({ successMessage: 'Expense added successfully!' });
       return response.data; // return the response data for further use in components
     } catch (err) {
