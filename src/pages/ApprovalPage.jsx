@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import TableHeader from "../components/ApprovalPage/TableHeader";
 import TableRow from "../components/ApprovalPage/TableRow";
 import ConfirmModal from "../components/ApprovalPage/ConfirmModal";

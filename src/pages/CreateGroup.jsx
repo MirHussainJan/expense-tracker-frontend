@@ -6,6 +6,7 @@ export default function CreateGroup() {
   const [selectedGroupType, setSelectedGroupType] = useState(null);
   const [isPopupVisible, setIsPopupVisible] = useState(false);
   const [members, setMembers] = useState([]);
+  const [membersId, setMembersId] = useState([]);
   const [searchText, setSearchText] = useState("");
 
   const handleGroupTypeClick = (type) => {
@@ -19,7 +20,8 @@ export default function CreateGroup() {
 
   const handleAddMember = (member) => {
     if (!members.includes(member)) {
-      setMembers([...members, member]);
+      setMembers([...members, member.username]);
+      setMembersId([...membersId, member._id]);
     }
   };
 
@@ -68,6 +70,7 @@ export default function CreateGroup() {
             handleGroupTypeClick={handleGroupTypeClick} 
             togglePopup={togglePopup} 
             handleAddMember={handleAddMember} 
+            membersId={membersId}
             isPopupVisible={isPopupVisible} setSearchText={setSearchText}
           />
         
