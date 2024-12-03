@@ -64,7 +64,6 @@ export default function Form({
 
   return (
     <>
-      {/* Group Name */}
       <div className="mb-2">
         <label htmlFor="groupName" className="block text-gray-600 font-medium mb-1 text-sm">
           Group Name
