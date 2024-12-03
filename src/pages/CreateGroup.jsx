@@ -70,7 +70,6 @@ export default function CreateGroup() {
             handleAddMember={handleAddMember} 
             isPopupVisible={isPopupVisible} setSearchText={setSearchText}
           />
-        
         </div>
       </div>
     </div>

@@ -7,11 +7,14 @@ import { RouterProvider } from 'react-router-dom';
 import { router } from './Router.jsx';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 createRoot(document.getElementById('root')).render(
   <StrictMode>
+    <QueryClientProvider client={new QueryClient()}>
     <RouterProvider router={router}>
     <App />
     </RouterProvider>
+  </QueryClientProvider>,
     <ToastContainer />
   </StrictMode>
 )

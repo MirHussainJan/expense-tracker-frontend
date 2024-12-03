@@ -1,4 +1,5 @@
 import { AiFillBell } from "react-icons/ai";
+import { Link } from "react-router-dom";
 
 const Header = () => {
   return (
@@ -15,9 +16,11 @@ const Header = () => {
 
       {/* Right Section */}
       <div className="right flex items-center gap-4 sm:gap-2">
-        <button className="py-2 text-sm border-white border-2 px-4 bg-black rounded-full text-white">
-          Login
-        </button>
+      <Link to="/register">
+          <button className="py-2 text-sm border-white border-2 px-4 bg-black rounded-full text-white">
+            Login
+          </button>
+        </Link>
         <div className="flex items-center justify-center w-10 h-10 border-2 border-black rounded-full bg-white">
           <AiFillBell className="text-xl" />
         </div>

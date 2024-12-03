@@ -1,34 +1,57 @@
-import { Link } from "react-router-dom";
+import { useQuery } from "@tanstack/react-query";
+import { Link, redirect, useNavigate } from "react-router-dom";
 import GroupCard from "../components/GroupPage/GroupCard";
-import {MdFamilyRestroom, MdPerson, MdHome } from "react-icons/md";
-const groups = [
-  {
-    id: 1,
-    name: "Weekend Trip",
-    type: "Travel",
-    icon: <MdHome size={25}/>, // Placeholder image for group icon
-    members: ["Alice", "Bob", "Charlie"],
-    totalAmount: "€450.00",
-  },
-  {
-    id: 2,
-    name: "Office Lunches",
-    type: "Food",
-    icon: <MdFamilyRestroom size={25}/>,
-    members: ["John", "Doe", "Smith"],
-    totalAmount: "€180.00",
-  },
-  {
-    id: 3,
-    name: "Roommates",
-    type: "Bills",
-    icon: <MdPerson size={25}/>,
-    members: ["Jake", "Amy", "Terry"],
-    totalAmount: "€300.00",
-  },
-];
+import { MdFamilyRestroom, MdPerson, MdHome } from "react-icons/md";
+const fetchGroups = async (userId, token) => {
+  
+ 
+  const response = await fetch(`http://localhost:3000/api/groups/${userId}`, {
+    method: "GET",
+    headers: {
+      "Authorization": `${token}`, 
+      "Content-Type": "application/json",
+    },
+  });
+  if (!response.ok) {
+    throw new Error("Failed to fetch groups");
+  }
+  return response.json();
+};
 
 const Group = () => {
+  const token = sessionStorage.getItem('token');
+  const userId = sessionStorage.getItem('userId'); // Replace this with the user ID stored in the session or context
+  const { data, isLoading, isError, error } = useQuery({
+    queryKey: ["groups", userId],
+    queryFn: () => fetchGroups(userId, token),
+  });
+
+  if (isLoading) {
+    return <div>Loading...</div>;
+  }
+
+  if (isError) {
+    return <div>Error: {error.message}</div>;
+  }
+
+  const groups = data.groups.map((group) => ({
+    id: group._id,
+    name: group.groupName,
+    type: group.groupType,
+    icon:
+      group.groupType === "Home" ? (
+        <MdHome size={25} />
+      ) : group.groupType === "Trip" ? (
+        <MdFamilyRestroom size={25} />
+      ) : (
+        <MdPerson size={25} />
+      ),
+    members: group.members.map((member) => member.username),
+    totalAmount: "245.00", // Replace with actual amount if available
+  }));
+ 
+    
+
   return (
     <div className="p-6 bg-gray-100 text-black min-h-screen font-poppins pt-24">
       <div className="flex justify-between items-center mb-6">
@@ -41,7 +64,7 @@ const Group = () => {
         </Link>
       </div>
 
-    <GroupCard groups={groups}/>
+     {data.groups.length > 0 && <GroupCard groups={groups} />}
     </div>
   );
 };
