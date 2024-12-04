@@ -1,8 +1,9 @@
 /* eslint-disable react/prop-types */
 
 
-export default function Header({setShowSettleUpModal, setShowBalancesModal, visibleMembers, groupMembers, showAllMembers, setShowAllMembers}) {
-    const handleSettleUp = () => {
+export default function Header({setShowSettleUpModal, setShowBalancesModal, groupMembers, showAllMembers, setShowAllMembers, transactions}) {
+    console.log("Hello", transactions);
+  const handleSettleUp = () => {
         setShowSettleUpModal(true); // Show the settle-up modal
       };
     
@@ -19,16 +20,16 @@ export default function Header({setShowSettleUpModal, setShowBalancesModal, visi
         className="w-20 h-20 rounded-full border-2 bg-cover bg-center object-cover object-center"
       />
     </div>
-    <h1 className="font-bold text-xl mt-12">Barfi Enterprises</h1>
+    <h1 className="font-bold text-xl mt-12">{transactions.groupName}</h1>
     <p className="mt-2">
-      You are owed <span className="font-semibold">€1,713.32</span> overall
+      You are owed <span className="font-semibold">{Math.round(transactions.totalOwed)}</span> overall
     </p>
     <p className="text-sm text-gray-600 mt-2">
-      {visibleMembers.map((member, index) => (
+      {transactions.map((member, index) => (
         <span key={index}>
-          {member.username} owes you{" "}
+          {member.label.includes('you') ? `${member.label} ${member.amount}` : ''} 
           <span className="font-semibold text-black">{member.owes}</span>
-          {index < visibleMembers.length - 1 ? " | " : ""}
+          { " | " }
         </span>
       ))}
       {groupMembers.length > 3 && !showAllMembers && (
