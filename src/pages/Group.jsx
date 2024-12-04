@@ -1,5 +1,5 @@
 import { useQuery } from "@tanstack/react-query";
-import { Link, redirect, useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 import GroupCard from "../components/GroupPage/GroupCard";
 import { MdFamilyRestroom, MdPerson, MdHome } from "react-icons/md";
 const fetchGroups = async (userId, token) => {

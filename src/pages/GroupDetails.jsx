@@ -1,31 +1,34 @@
-import { useState } from "react";
-import AddExpense from "../components/GroupDetailsPage/AddExpense"; // Import your modal
+/* eslint-disable no-unused-vars */
+import { useState, useEffect } from "react";
+import AddExpense from "../components/GroupDetailsPage/AddExpense";
+import { useParams } from "react-router-dom";
+import Transaction from "../components/GroupDetailsPage/Transaction";
+import Header from "../components/GroupDetailsPage/Header";
 
 export default function GroupDetails() {
-
-  
-  const [groupMembers, setGroupMembers] = useState([
-    { name: "Ali R.", owes: "€4,143.01" },
-    { name: "Abdul M.", owes: "€3,160.77" },
-    { name: "Faique A.", owes: "€731.08" },
-    { name: "John D.", owes: "€450.00" },
-  ]);
+ 
+  const [groupMembers, setGroupMembers] = useState([]);
   const [showAllMembers, setShowAllMembers] = useState(false);
   const [showAddExpenseModal, setShowAddExpenseModal] = useState(false); // Modal visibility state
   const [balances, setBalances] = useState(groupMembers);
   const [showBalancesModal, setShowBalancesModal] = useState(false); 
   const [showSettleUpModal, setShowSettleUpModal] = useState(false); 
   const [expenseToSettle, setExpenseToSettle] = useState(null);
-
-  // Toggle function to show modal
-  const handleAddExpense = () => {
-    setShowAddExpenseModal(true); // Show modal when Add Expense is clicked
-  };
-
-  // Close modal
-  const handleCloseAddExpenseModal = () => {
-    setShowAddExpenseModal(false); // Close modal when clicking "Close"
-  };
+  const {groupId} = useParams();
+  useEffect(() => {
+    const fetchGroupDetails = async () => {
+      try {
+        const response = await fetch(`http://localhost:3000/api/groups/${groupId}/members`);
+        const data = await response.json();
+        setGroupMembers(data.members);
+        console.log(data.members);
+      } catch (error) {
+        console.error("Failed to fetch group details:", error);
+      }
+    };
+    fetchGroupDetails();
+  }, [groupId]);
+  
 
   // Handle submission of expense data
   const handleSubmitExpense = (expenseDetails) => {
@@ -66,82 +69,10 @@ export default function GroupDetails() {
   return (
     <div className="pt-24 min-h-screen text-black">
       {/* Header Section */}
-      <div className="border-2 rounded-xl border-black text-center relative bg-white p-6 mx-6">
-        <div className="absolute top-[-30px] left-1/2 transform -translate-x-1/2">
-          <img
-            src="/right.jfif"
-            alt="Group"
-            className="w-20 h-20 rounded-full border-2 bg-cover bg-center object-cover object-center"
-          />
-        </div>
-        <h1 className="font-bold text-xl mt-12">Barfi Enterprises</h1>
-        <p className="mt-2">
-          You are owed <span className="font-semibold">€1,713.32</span> overall
-        </p>
-        <p className="text-sm text-gray-600 mt-2">
-          {visibleMembers.map((member, index) => (
-            <span key={index}>
-              {member.name} owes you{" "}
-              <span className="font-semibold text-black">{member.owes}</span>
-              {index < visibleMembers.length - 1 ? " | " : ""}
-            </span>
-          ))}
-          {groupMembers.length > 3 && !showAllMembers && (
-            <button
-              className="text-gray-500 underline ml-2"
-              onClick={() => setShowAllMembers(true)}
-            >
-              View More
-            </button>
-          )}
-        </p>
-        <div className="mt-4 flex justify-center space-x-4">
-          <button
-            className="bg-black text-white text-sm font-semibold py-2 px-6 rounded-full"
-            onClick={handleSettleUp}
-          >
-            Settle up
-          </button>
-          <button
-            className="bg-black text-white text-sm font-semibold py-2 px-6 rounded-full"
-            onClick={handleBalances}
-          >
-            Balances
-          </button>
-        </div>
-      </div>
+     <Header setShowSettleUpModal = {setShowAddExpenseModal} setShowBalancesModal = {setShowBalancesModal} visibleMembers = {visibleMembers} groupMembers = {groupMembers} showAllMembers = {showAllMembers} setShowAllMembers= {setShowAllMembers} />
 
       {/* Transactions Section */}
-      <div className="mt-8 px-6">
-        <div className="flex justify-between items-center mb-4">
-          <h2 className="text-lg font-semibold">Transactions (November 2024)</h2>
-          <button
-            className="bg-black text-white py-2 px-6 rounded-full"
-            onClick={handleAddExpense} // Click to show the modal
-          >
-            + Add Expense
-          </button>
-        </div>
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-4">
-          {[{ date: "Nov 26", label: "Water", amount: "€50.00", status: "borrowed" }, { date: "Nov 25", label: "Sultan Nakshtra", amount: "€223.34", status: "owed" }].map((item, index) => (
-            <div key={index} className="flex items-center justify-between border-2 border-black rounded-lg shadow-md p-4">
-              <div className="flex items-center space-x-4">
-                <div className="w-10 h-10 bg-white border-2 border-black rounded-full flex items-center justify-center">
-                  <span className="text-sm font-bold bg-white">T</span>
-                </div>
-                <div>
-                  <h3 className="font-semibold">{item.label}</h3>
-                  <p className="text-sm text-gray-400">{item.date}</p>
-                </div>
-              </div>
-              <div className={`text-right ${item.status === "borrowed" ? "text-gray-500" : "text-black"}`}>
-                {item.status === "borrowed" ? "You borrowed" : "You are owed"}
-                <p className="font-bold">{item.amount}</p>
-              </div>
-            </div>
-          ))}
-        </div>
-      </div>
+     <Transaction setShowAddExpenseModal={setShowAddExpenseModal}/>
 
       {/* Add Expense Modal */}
       {showAddExpenseModal && (
